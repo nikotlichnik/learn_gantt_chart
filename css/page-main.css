@@ -1,0 +1,85 @@
+.page-main {
+    grid-area: main;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--lightgrey);
+}
+
+.page-main__title {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.page-main__theory {
+    margin-bottom: 20px;
+
+    text-indent: 20px;
+}
+
+.page-main__paragraph {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+
+    font-weight: 200;
+    letter-spacing: 1px;
+    line-height: 28px;
+    hyphens: auto;
+}
+
+.page-main__table {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.page-main__table-title {
+    margin-top: 20px;
+
+    letter-spacing: 1px;
+}
+
+.page-main__controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-main__control {
+    padding: 10px 16px;
+
+    color: var(--white);
+    font-size: 15px;
+
+    border-radius: 4px;
+    background-color: var(--hover-blue);
+}
+
+.page-main__control:hover {
+    background-color: var(--hover-link-blue);
+}
+
+.page-main__control:active {
+    background-color: var(--active-link-blue);
+}
+
+.page-main__control--disabled {
+    color: var(--disabled-link-text);
+
+    background-color: var(--lightgrey);
+}
+
+.page-main__control--disabled:hover {
+    background-color: var(--lightgrey);
+}
+
+.page-main__control--disabled:active {
+    background-color: var(--lightgrey);
+}

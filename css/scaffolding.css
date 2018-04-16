@@ -1,0 +1,38 @@
+:root {
+    --font-black: #000000;
+    --white: #FFFFFF;
+    --lightgrey: #E9ECEF;
+    --hover-blue: #007DFF;
+    --active-blue: #1D00FE;
+    --hover-text-blue: #0070E0;
+    --active-text-blue: #1D54FE;
+    --table-border: rgba(19, 100, 205, 0.1);
+    --gantt-busy: #D5DFE9;
+    --gantt-busy-hover: #98A9B9;
+    --hover-link-blue: #0059FF;
+    --active-link-blue: #0B00FF;
+    --disabled-link-text: rgba(0, 0, 0, 0.2);
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: 200;
+    src: url("../fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: 900;
+    src: url("../fonts/HelveticaNeueCyr-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: 400;
+    src: url("../fonts/HelveticaNeueCyr-Medium.otf") format("opentype");
+}
+
+a {
+    color: var(--font-black);
+    text-decoration: none;
+}

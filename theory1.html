@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обучающий курс по JavaScript. Создание диаграммы Гантта. Задание 1.</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-body">
+
+<header class="page-header">
+    <a class="page-header__title" href="index.html">
+        <h1 class="page-header__course-name">JS курс по созданию диаграмм Гантта</h1>
+    </a>
+</header>
+
+<main class="page-main">
+    <h2 class="page-main__title">Теория. Что такое диаграмма Гантта?</h2>
+
+    <section class="page-main__theory">
+        <p class="page-main__paragraph">
+            Представьте, что вы JavaScript разработчик в компании, разрабатывающей
+            продукты, которые помогают другим компаниям эффективно управлять своими внутренними процессами. Процессов
+            много, и они идут в течение некоторого времени. Например, выполнение проектов, смены работников, переговоры.
+            Для наглядного представления множества однородных процессов в течение времени используют диаграмму Гантта.
+        </p>
+        <p class="page-main__paragraph">
+            Диаграмма Гантта в своём самом простом исполнении состоит из полос, ориентированных вдоль оси времени.
+            Каждая полоса на диаграмме представляет отдельный процесс, её концы — моменты начала и завершения работы, её
+            протяженность — длительность работы. Вертикальной осью диаграммы служит перечень процессов.
+        </p>
+        <figure class="page-main__table">
+            <figcaption class="page-main__table-title">Пример диаграммы Гантта, описывающей процесс написания курсовой
+                работы
+            </figcaption>
+            <table class="gantt-table">
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--no-border"></td>
+                    <td colspan="16" class="gantt-table__cell gantt-table__cell--title">Курсовая работа</td>
+                </tr>
+
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--no-border"></td>
+                    <td colspan="16" class="gantt-table__cell gantt-table__cell--month">Май 2018</td>
+                </tr>
+
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--no-border"></td>
+                    <td class="gantt-table__cell gantt-table__cell--date">1</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">2</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">3</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">4</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">5</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">6</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">7</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">8</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">9</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">10</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">11</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">12</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">13</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">14</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">15</td>
+                    <td class="gantt-table__cell gantt-table__cell--date">16</td>
+                </tr>
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--task">Выбор темы</td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                </tr>
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--task">Написание</td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                </tr>
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--task">Подготовка отчёта</td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                </tr>
+                <tr>
+                    <td class="gantt-table__cell gantt-table__cell--task">Защита</td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                    <td class="gantt-table__cell gantt-table__cell--busy"></td>
+                </tr>
+            </table>
+        </figure>
+        <p class="page-main__paragraph">
+            В этом обучающем курсе мы научимся создавать диаграмму Гантта, которая позволит решить задачу по составлению
+            расписания работников.
+        </p>
+    </section>
+    <section class="page-main__controls">
+        <a class="page-main__control page-main__control--disabled">Назад</a>
+        <a class="page-main__control" href="task1.html">Дальше</a>
+    </section>
+</main>
+
+<footer class="page-footer">
+
+</footer>
+</body>
+</html>

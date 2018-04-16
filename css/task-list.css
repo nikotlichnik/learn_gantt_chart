@@ -1,0 +1,52 @@
+.task-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.task-list__link {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    border-radius: 4px;
+    background-color: var(--lightgrey);
+
+    transition: all 0.2s ease;
+}
+
+.task-list__link:hover {
+    background-color: var(--hover-blue);
+}
+
+.task-list__link:active {
+    background-color: var(--active-blue);
+}
+
+.task-list__item-title {
+    display: inline-block;
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.task-list__link:hover .task-list__item-title {
+    color: var(--white);
+}
+
+.task-list__item-description {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.task-list__link:hover .task-list__item-description {
+    color: var(--white);
+}
