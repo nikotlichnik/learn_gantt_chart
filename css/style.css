@@ -5,4 +5,6 @@
 @import "page-main.css";
 @import "task-list.css";
 @import "gantt-table.css";
+@import "editor.css";
+@import "task.css";
 @import "page-footer.css";

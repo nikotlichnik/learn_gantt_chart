@@ -1,0 +1,16 @@
+.task{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-rows: 350px 500px;
+    grid-template-areas: "editor" "result";
+}
+
+.task__editor{
+    grid-area: editor;
+}
+
+.task__result{
+    grid-area: result;
+
+    border: none;
+}
