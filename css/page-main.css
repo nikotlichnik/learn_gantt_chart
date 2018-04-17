@@ -57,7 +57,9 @@
 
     color: var(--white);
     font-size: 15px;
+    font-weight: 200;
 
+    border: none;
     border-radius: 4px;
     background-color: var(--hover-blue);
 }

@@ -12,6 +12,7 @@
     --hover-link-blue: #0059FF;
     --active-link-blue: #0B00FF;
     --disabled-link-text: rgba(0, 0, 0, 0.2);
+    --modal-bg-grey: rgba(0, 16, 33, 0.4);
 }
 
 @font-face {

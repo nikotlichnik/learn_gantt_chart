@@ -14,21 +14,26 @@
 </header>
 
 <main class="page-main">
-    <h2 class="page-main__title">Задание 1. Название задания 1</h2>
+    <h2 class="page-main__title">Задание 2. Название задания 2</h2>
 
     <section class="task">
         <div class="task__editor task__editor--html" id="editorHTML"></div>
         <div class="task__editor task__editor--css" id="editorCSS"></div>
         <div class="task__editor task__editor--javascript" id="editorJS"></div>
-        <iframe class="task__result">
-
-        </iframe>
-        <img class="task__iframe-example" src="img/template.PNG" alt="Картинка-заглушка">
+        <iframe class="task__result"></iframe>
     </section>
 
     <section class="page-main__controls">
-        <a class="page-main__control" href="theory1.html">Назад</a>
-        <a class="page-main__control" href="task2.html">Дальше</a>
+        <a class="page-main__control" href="task1.html">Назад</a>
+        <a class="page-main__control page-main__control--disabled">Дальше</a>
+    </section>
+
+    <section class="page-main__modal modal">
+        <h3 class="modal__title">Описание задачи</h3>
+        <p class="modal__description">Здесь будет вкратце описан теоретический материал для выполнения задания</p>
+        <div class="modal__button-wrapper">
+            <button class="page-main__control modal__button">Хорошо</button>
+        </div>
     </section>
 </main>
 

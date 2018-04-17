@@ -9,8 +9,6 @@
 
     font-size: 25px;
     font-weight: 900;
-
-    transition: all 0.2s ease;
 }
 
 [href].page-header__title:hover .page-header__course-name {

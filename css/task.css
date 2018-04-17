@@ -1,16 +1,36 @@
-.task{
+.task {
     display: grid;
     grid-gap: 20px;
     grid-template-rows: 350px 500px;
-    grid-template-areas: "editor" "result";
+    grid-template-columns: 440px 440px 440px;
+    grid-template-areas: "html css js" "result result result";
+    margin-bottom: 20px;
 }
 
-.task__editor{
-    grid-area: editor;
+.task__editor--html {
+    grid-area: html;
 }
 
-.task__result{
+.task__editor--css {
+    grid-area: css;
+}
+
+.task__editor--javascript {
+    grid-area: js;
+}
+
+.task__result {
     grid-area: result;
 
-    border: none;
+    border: 1px solid var(--lightgrey);
+}
+
+.task__iframe-example{
+    grid-area: result;
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    object-fit: contain;
 }
