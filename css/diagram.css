@@ -1,0 +1,111 @@
+.diagram {
+    display: grid;
+    grid-template-columns: 245px 1080px;
+    grid-template-rows: 44px;
+    grid-template-areas: "date time-values" "crew-time crew-time";
+}
+
+.diagram__date{
+    align-self: center;
+    justify-self: center;
+
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.diagram__time-lines {
+    grid-area: time-values;
+
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.diagram__time-value {
+    width: 88px;
+
+    position: relative;
+
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.diagram__time-value::after {
+    content: '';
+    width: 1px;
+    height: 450px;
+
+    position: absolute;
+    top: 20px;
+    left: 0;
+    z-index: 10;
+
+    background-color: var(--time-line);
+}
+
+.diagram__crew-list {
+    grid-area: crew-time;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.diagram__crew {
+    display: grid;
+    grid-template-columns: 245px 1080px;
+    grid-template-rows: 44px;
+    grid-template-areas: "crew-name crew-time";
+    margin-bottom: 10px;
+}
+
+.diagram__crew-name {
+    grid-area: crew-name;
+    align-self: center;
+    padding-left: 10px;
+
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.diagram__crew-time {
+    grid-area: crew-time;
+    border-left: 1px solid var(--lightgrey);
+
+    position: relative;
+
+    background-color: var(--schedule-bg);
+}
+
+.diagram__time-block {
+    height: 44px;
+
+    position: absolute;
+
+    background-color: var(--time-block-normal);
+
+    resize: horizontal;
+    overflow: hidden;
+}
+
+.diagram__time-block:hover {
+    background-color: var(--time-block-hover);
+}
+
+.diagram__time-block:active {
+    background-color: var(--time-block-active);
+}
+
+.diagram__time-block--187 {
+    width: 200px;
+
+    left: 400px;
+}
+
+.diagram__time-block--230 {
+    width: 450px;
+}

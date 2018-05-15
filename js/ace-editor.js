@@ -12,6 +12,7 @@ editorHTML.session.setMode("ace/mode/html");
 editorHTML.setValue("Здесь будет HTML");
 
 var iframeDocument = iframe.contentWindow.document.body;
+iframeDocument.innerHTML = "Здесь будет результат";
 
 var onChangeHTML = function () {
     iframeDocument.innerHTML = "";
@@ -38,9 +39,9 @@ iframeDocument.appendChild(userScript);
 
 var onChangeJS = function () {
     var JsEditorContent = editorJS.getValue();
-
-    var iframeScript = iframeDocument.querySelector("script");
-    iframeScript.textContent = JsEditorContent;
+    //
+    // var iframeScript = iframeDocument.querySelector("script");
+    // iframeScript.textContent = JsEditorContent;
 };
 
 editorJS.session.on('change', onChangeJS);
@@ -60,9 +61,9 @@ iframeDocument.appendChild(userStyle);
 
 var onChangeCSS = function () {
     var CssEditorContent = editorCSS.getValue();
-
-    var iframeStyle = iframeDocument.querySelector("style");
-    iframeStyle.textContent = CssEditorContent;
+    //
+    // var iframeStyle = iframeDocument.querySelector("style");
+    // iframeStyle.textContent = CssEditorContent;
 };
 
 editorCSS.session.on('change', onChangeCSS);

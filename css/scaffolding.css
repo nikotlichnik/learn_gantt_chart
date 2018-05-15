@@ -13,6 +13,12 @@
     --active-link-blue: #0B00FF;
     --disabled-link-text: rgba(0, 0, 0, 0.2);
     --modal-bg-grey: rgba(0, 16, 33, 0.4);
+
+    --schedule-bg: #F6F7F9;
+    --time-block-normal: #D5DFE9;
+    --time-block-hover: #98A9B9;
+    --time-block-active: #99A9B9;
+    --time-line: rgba(19, 100, 205, 0.1);
 }
 
 @font-face {

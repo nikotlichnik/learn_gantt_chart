@@ -21,6 +21,8 @@
 
 .task__result {
     grid-area: result;
+    width: 1360px;
+    height: 500px;
 
     border: 1px solid var(--lightgrey);
 }
