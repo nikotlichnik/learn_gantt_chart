@@ -16,8 +16,6 @@
 
 .page-main__theory {
     margin-bottom: 20px;
-
-    text-indent: 20px;
 }
 
 .page-main__paragraph {
@@ -28,6 +26,7 @@
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 28px;
+    text-indent: 20px;
     hyphens: auto;
 }
 
@@ -47,7 +46,7 @@
     letter-spacing: 1px;
 }
 
-.page-main__controls{
+.page-main__controls {
     display: flex;
     justify-content: space-between;
 }

@@ -89,15 +89,13 @@ interact('.diagram__time-block')
                 interact.createSnapGrid({x: 88, y: 1, offset: {x: -4.5, y: 0}})
             ],
             range: Infinity,
-            relativePoints: [{x: 0, y: 0}]
+            relativePoints: [{x: 1, y: 1}]
         },
+
         restrict: {
             restriction: "parent",
             elementRect: {top: 0, left: 0, bottom: 1, right: 1}
         },
-        // enable autoScroll
-        autoScroll: true,
-
         // call this function on every dragmove event
         onmove: dragMoveListener
     })
@@ -169,4 +167,28 @@ var sortable = Sortable.create(el, {
     animation: 150,
     filter: ".diagram__time-block",
     handle: ".diagram__crew-name"
+});
+
+var addButton = document.querySelector(".diagram__button--add-crew");
+addButton.addEventListener("click", function () {
+    var crewList = document.querySelector(".diagram__crew-list");
+
+    var listItem = document.createElement("li");
+    listItem.classList.add("diagram__crew");
+
+    var crewName = document.createElement("b");
+    crewName.classList.add("diagram__crew-name");
+    crewName.textContent = "Доп. работник";
+
+    var timeline = document.createElement("div");
+    timeline.classList.add("diagram__crew-time");
+
+    var timeblockClass = "diagram__time-block--230";
+    var timeblock = document.createElement("div");
+    timeblock.classList.add("diagram__time-block", timeblockClass);
+
+    timeline.appendChild(timeblock);
+    listItem.appendChild(crewName);
+    listItem.appendChild(timeline);
+    crewList.appendChild(listItem);
 });
