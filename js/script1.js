@@ -18,25 +18,46 @@ var timetable = [
         "number": 230,
         "name": "Никита",
         "time": [8, 18]
+    },
+    {
+        "number": 230,
+        "name": "Никита",
+        "time": [8, 18]
+    },
+    {
+        "number": 230,
+        "name": "Никита",
+        "time": [8, 18]
     }
 ];
 var openHour = 8;
 var closeHour = 20;
+var diagramLineSize = 1068;
+var diagramLineHeight = 54;
+var cellSize = diagramLineSize / (closeHour - openHour);
 
+/* Генерация диаграммы из данных выше*/
 var diagram = document.querySelector(".diagram");
 
 var generateTimetable = function (timetable) {
+    // Шкала времени
+    var documentHead = document.querySelector("head");
+    var headStyle = document.createElement("style");
+    headStyle.innerHTML = ".diagram__time-value::after { height: " + (timetable.length * diagramLineHeight + 9) + "px;}";
+    documentHead.appendChild(headStyle);
+
     var timeValuesList = document.createElement("ul");
     timeValuesList.classList.add("diagram__time-lines");
     for (var i = openHour; i <= closeHour; i++) {
         var timeValueItem = document.createElement("li");
         timeValueItem.classList.add("diagram__time-value");
         timeValueItem.textContent = i + ":00";
-        timeValueItem.style.width = "89px";
+        timeValueItem.style.width = cellSize + "px";
         i == closeHour ? timeValueItem.style.width = "12px" : {};
         timeValuesList.appendChild(timeValueItem);
     }
 
+    // Список работников
     var crewList = document.createElement("ul");
     crewList.classList.add("diagram__crew-list");
     for (var i = 0; i < timetable.length; i++) {
@@ -50,16 +71,16 @@ var generateTimetable = function (timetable) {
 
         var timeline = document.createElement("div");
         timeline.classList.add("diagram__crew-time");
-        timeline.style.width = "1068px";
+        timeline.style.width = diagramLineSize + "px";
 
         var timeblockClass = "diagram__time-block--" + timetable[i]["number"];
         var timeblock = document.createElement("div");
         timeblock.classList.add("diagram__time-block", timeblockClass);
-        var blockOffset = 89 * (timetable[i]["time"][0] - openHour);
+        var blockOffset = cellSize * (timetable[i]["time"][0] - openHour);
         timeblock.style.left = blockOffset + "px";
-        var blockWidth = 89 * (timetable[i]["time"][1] - timetable[i]["time"][0]);
+        var blockWidth = cellSize * (timetable[i]["time"][1] - timetable[i]["time"][0]);
         timeblock.style.width = blockWidth + "px";
-        console.log(blockWidth);
+
 
         timeline.appendChild(timeblock);
         listItem.appendChild(crewName);
@@ -73,20 +94,15 @@ var generateTimetable = function (timetable) {
 
 generateTimetable(timetable);
 
-var timeBlockContainer = document.querySelector('.diagram__crew-time');
-
+/* Инициализация механизма интерактивности диаграммы */
 var gridTarget = interact.createSnapGrid({
-    x: 89,
-    y: 44 ,
+    x: cellSize,
+    y: 44,
     offset: {x: 0, y: 0}
 });
 
 
 interact('.diagram__time-block')
-    // .origin({
-    //     x: timeBlockContainer.offsetLeft,
-    //     y: timeBlockContainer.offsetTop
-    // })
     .draggable({
         origin: 'parent',
         snap: {
@@ -117,8 +133,8 @@ interact('.diagram__time-block')
 
         // minimum size
         restrictSize: {
-            min: {width: 89, height: 44},
-            max: {width: 1068, height: 44}
+            min: {width: cellSize, height: 44},
+            max: {width: diagramLineSize, height: 44}
         }
     })
     .on('resizemove', function (event) {
@@ -164,7 +180,7 @@ function dragMoveListener(event) {
     target.textContent = event.dx + " " + event.dy;
 }
 
-
+/* Перестановка строк местами */
 var el = document.querySelector('.diagram__crew-list');
 var sortable = Sortable.create(el, {
     animation: 150,
