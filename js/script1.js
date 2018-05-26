@@ -20,13 +20,13 @@ var timetable = [
         "time": [8, 18]
     },
     {
-        "number": 230,
-        "name": "Никита",
+        "number": 60,
+        "name": "Алла",
         "time": [8, 18]
     },
     {
-        "number": 230,
-        "name": "Никита",
+        "number": 217,
+        "name": "Роман",
         "time": [8, 18]
     }
 ];
@@ -73,9 +73,9 @@ var generateTimetable = function (timetable) {
         timeline.classList.add("diagram__crew-time");
         timeline.style.width = diagramLineSize + "px";
 
-        var timeblockClass = "diagram__time-block--" + timetable[i]["number"];
         var timeblock = document.createElement("div");
-        timeblock.classList.add("diagram__time-block", timeblockClass);
+        timeblock.classList.add("diagram__time-block");
+        timeblock.setAttribute('data-crew-number', timetable[i]["number"]);
         var blockOffset = cellSize * (timetable[i]["time"][0] - openHour);
         timeblock.style.left = blockOffset + "px";
         var blockWidth = cellSize * (timetable[i]["time"][1] - timetable[i]["time"][0]);
@@ -156,6 +156,14 @@ interact('.diagram__time-block')
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
         target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height);
+
+        for (var i = 0; i < timetable.length; i++) {
+            if (timetable[i]["number"] == target.dataset.crewNumber) {
+                timetable[i]["time"][0] = openHour + (target.dataset.x / cellSize);
+                timetable[i]["time"][1] = timetable[i]["time"][0] + (parseInt(target.style.width) / cellSize);
+                console.log(timetable[i]["time"])
+            }
+        }
     })
     .on('dragmove resizestart', function (event) {
         console.log(event.type);
@@ -173,11 +181,19 @@ function dragMoveListener(event) {
         target.style.transform =
             'translate(' + x + 'px, ' + y + 'px)';
 
-    // update the posiion attributes
+    // update the position attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
     target.textContent = event.dx + " " + event.dy;
+
+    for (var i = 0; i < timetable.length; i++) {
+        if (timetable[i]["number"] == target.dataset.crewNumber) {
+            timetable[i]["time"][0] = timetable[i]["time"][0] + (event.dx / cellSize);
+            timetable[i]["time"][1] = timetable[i]["time"][1] + (event.dx / cellSize);
+            console.log(timetable[i]["time"])
+        }
+    }
 }
 
 /* Перестановка строк местами */
@@ -185,5 +201,21 @@ var el = document.querySelector('.diagram__crew-list');
 var sortable = Sortable.create(el, {
     animation: 150,
     filter: ".diagram__time-block",
-    handle: ".diagram__crew-name"
+    handle: ".diagram__crew-name",
+    onEnd: function (/**Event*/evt) {
+        var itemEl = evt.item;  // dragged HTMLElement
+        console.log(evt.to);    // target list
+        console.log(evt.from);  // previous list
+        console.log(evt.oldIndex);  // element's old index within old parent
+        console.log(evt.newIndex);  // element's new index within new parent
+    }
+});
+
+/*Проверка выполнения задания*/
+var checkButton = document.querySelector(".diagram__button--check-task");
+checkButton.addEventListener("click", function () {
+    var timeList = document.querySelectorAll(".diagram__crew");
+    for (var i = 0; i < timeList.length; i++) {
+        console.log(timeList[i].querySelector("b").textContent.split(" ")[0]);
+    }
 });
