@@ -73,6 +73,7 @@
 
 .diagram__crew-list {
     grid-area: crew-time;
+
     margin: 0;
     padding: 0;
 
@@ -84,7 +85,7 @@
     grid-template-columns: 245px 1080px;
     grid-template-rows: 44px;
     grid-template-areas: "crew-name crew-time";
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .diagram__crew-name {
@@ -101,7 +102,6 @@
 
 .diagram__crew-time {
     grid-area: crew-time;
-    /*border-left: 1px solid var(--lightgrey);*/
 
     position: relative;
 
@@ -123,26 +123,4 @@
 
 .diagram__time-block:active {
     background-color: var(--time-block-active);
-}
-
-.diagram__time-block--187 {
-    width: 176px;
-
-    left: 352px;
-}
-
-.diagram__time-block--230 {
-    width: 440px;
-}
-
-.diagram__time-block--69 {
-    width: 264px;
-
-    left: 704px;
-}
-
-.diagram__time-block--214 {
-    width: 176px;
-
-    left: 528px;
 }
