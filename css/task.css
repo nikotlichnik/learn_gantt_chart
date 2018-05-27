@@ -3,7 +3,7 @@
     grid-gap: 20px;
     grid-template-rows: auto auto;
     grid-template-columns: 440px 440px 440px;
-    grid-template-areas: "theory theory theory" "task task task";
+    grid-template-areas: "theory theory theory" "task task task" "actions actions actions" "result result result";
     margin-bottom: 20px;
 }
 
@@ -11,7 +11,7 @@
     grid-area: theory;
 }
 
-.task__paragraph{
+.task__paragraph {
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
@@ -23,7 +23,81 @@
     hyphens: auto;
 }
 
+.task__results {
+    grid-area: result;
+}
+
+.task__result {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+
+    font-weight: 200;
+    letter-spacing: 1px;
+    line-height: 28px;
+    text-indent: 20px;
+    hyphens: auto;
+}
+
+.task__result--correct {
+    display: none;
+
+    color: var(--correct-green);
+}
+
+.task__result--wrong {
+    display: none;
+
+    color: var(--wrong-red);
+}
+
+.task__image {
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+.task__actions {
+    grid-area: actions;
+    display: grid;
+}
+
+.task__button {
+    padding: 10px 16px;
+
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 200;
+
+    border: none;
+    border-radius: 4px;
+    background-color: var(--hover-blue);
+}
+
+.task__button:hover {
+    background-color: var(--hover-link-blue);
+}
+
+.task__button:active {
+    background-color: var(--active-link-blue);
+}
+
+.task__button--check-task {
+    color: var(--font-black);
+    background-color: var(--check-button-yellow);
+}
+
+.task__button--check-task:hover {
+    background-color: var(--check-button-yellow-hover);
+}
+
+.task__button--check-task:active {
+    background-color: var(--check-button-yellow-active);
+}
+
 .task__diagram {
     grid-area: task;
     border: 1px solid var(--lightgrey);
 }
+

@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Обучающий курс по JavaScript. Создание диаграммы Гантта. Задание 1.</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-$END$
+<body class="page-body">
+
+<header class="page-header">
+    <a class="page-header__title" href="index.html">
+        <h1 class="page-header__course-name">JS курс по созданию диаграмм Гантта</h1>
+    </a>
+</header>
+
+<main class="page-main">
+    <h2 class="page-main__title">
+        Задание 1. Сделаем красиво и понятно
+        <small class="page-main__is-done page-main__is-done--correct">✔ выполнено</small>
+        <small class="page-main__is-done page-main__is-done--no-result">✘ ещё не выполнялось</small>
+        <small class="page-main__is-done page-main__is-done--wrong">✘ выполнено неверно</small>
+    </h2>
+
+    <section class="task">
+        <section class="task__theory">
+            <p class="task__paragraph">
+                Диаграмма Гантта предназначена для наглядного представления начала и окончания сроков некоторых
+                процессов. Рассмотрим пример диаграммы, на которой изображена продолжительность смен работников в
+                кофейне.
+            </p>
+            <p class="task__paragraph">
+                Давайте расставим работников на диаграмме в таком порядке сверху вниз, чтобы их смены начинались
+                последовательно. Если несколько смен начинается в одно время, то ниже должна оказаться та, которая заканчивается
+                позже.
+            </p>
+            <p class="task__paragraph">
+                Наведите курсор на область с табельным номером и именем работника и перетаскивайте полосы вверх-вниз.
+            </p>
+        </section>
+        <section class="task__actions task__actions--task1">
+            <button class="task__button task__button--check-task">Проверить</button>
+        </section>
+        <section class="task__diagram diagram">
+            <b class="diagram__date">5 мая · Суббота</b>
+        </section>
+        <section class="task__results">
+            <p class="task__result task__result--correct">
+                Правильно! В таком упорядоченном виде гораздо проще проводить анализ диаграммы, чем мы займёмся в следующем задании.
+            </p>
+            <p class="task__result task__result--wrong">
+                Что-то не так. Проверьте соответствует ли расположение полос в диаграмме условиям задания.
+            </p>
+        </section>
+    </section>
+
+    <section class="page-main__controls">
+        <a class="page-main__control" href="task1.html">Назад</a>
+        <a class="page-main__control" href="task3.html">Дальше</a>
+    </section>
+</main>
+
+<footer class="page-footer">
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.3/dist/interact.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script>
+<script src="js/script2.js"></script>
 </body>
 </html>

@@ -14,6 +14,25 @@
     font-weight: 900;
 }
 
+.page-main__is-done {
+    margin-left: 20px;
+}
+
+.page-main__is-done--correct {
+    display: none;
+    color: var(--correct-green);
+}
+
+.page-main__is-done--wrong {
+    display: none;
+    color: var(--wrong-red);
+}
+
+.page-main__is-done--no-result {
+    display: none;
+    color: var(--modal-bg-grey);
+}
+
 .page-main__theory {
     margin-bottom: 20px;
 }

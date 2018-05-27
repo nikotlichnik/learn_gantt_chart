@@ -19,6 +19,13 @@
     --time-block-hover: #98A9B9;
     --time-block-active: #99A9B9;
     --time-line: rgba(19, 100, 205, 0.1);
+
+    --check-button-yellow: #ffdb4d;
+    --check-button-yellow-hover: #ffd633;
+    --check-button-yellow-active: #fc0;
+
+    --correct-green: #2e5d04;
+    --wrong-red: #9c1f1e;
 }
 
 @font-face {

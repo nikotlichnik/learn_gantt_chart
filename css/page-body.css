@@ -1,6 +1,6 @@
 .page-body{
     display: grid;
-    grid-template-columns: auto 1365px auto;
+    grid-template-columns: 1fr 1365px 1fr;
     grid-template-areas:
             ". header ."
             ". main ."
