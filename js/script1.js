@@ -1,27 +1,27 @@
 var timetable = {
-        "214": {
-            "name": "Рита",
-            "time": [14, 19]
+        "69": {
+            "name": "Екатерина",
+            "time": [16, 19]
         },
         "187": {
             "name": "Лиза",
-            "time": [14, 20]
+            "time": [10, 16]
         },
-        "69": {
-            "name": "Екатерина",
-            "time": [8, 10]
-        },
-        "230": {
-            "name": "Никита",
-            "time": [8, 18]
-        },
-        "60": {
-            "name": "Алла",
-            "time": [8, 18]
+        "214": {
+            "name": "Рита",
+            "time": [15, 20]
         },
         "217": {
             "name": "Роман",
-            "time": [8, 18]
+            "time": [10, 18]
+        },
+        "60": {
+            "name": "Алла",
+            "time": [8, 14]
+        },
+        "230": {
+            "name": "Никита",
+            "time": [11, 18]
         }
     }
 ;
@@ -37,7 +37,7 @@ var diagram = document.querySelector(".diagram");
 var generateTimetable = function (timetable) {
     // Шкала времени
     var numberOfCrew = 0;
-    for(var crew in timetable){
+    for (var crew in timetable) {
         numberOfCrew++;
     }
     var documentHead = document.querySelector("head");
@@ -211,8 +211,24 @@ var sortable = Sortable.create(el, {
 var checkButton = document.querySelector(".task__button--check-task");
 checkButton.addEventListener("click", function () {
     var timeList = document.querySelectorAll(".diagram__crew");
+    var isCorrect = true;
     for (var i = 0; i < timeList.length; i++) {
         var crewNumber = timeList[i].querySelector(".diagram__crew-time").querySelector(".diagram__time-block").dataset.crewNumber;
-
+        var crewBeginTime = timetable[crewNumber]["time"][0];
+        if (i == 0) {
+            var prevCrewBeginTime = crewBeginTime;
+            continue;
+        }
+        if (crewBeginTime >= prevCrewBeginTime) {
+            prevCrewBeginTime = crewBeginTime;
+        } else {
+            isCorrect = false;
+            break;
+        }
+    }
+    if (isCorrect) {
+        alert("Верно!");
+    } else {
+        alert("Неверно!");
     }
 });
