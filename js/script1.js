@@ -1,35 +1,30 @@
-var timetable = [
-    {
-        "number": 214,
-        "name": "Рита",
-        "time": [14, 19]
-    },
-    {
-        "number": 187,
-        "name": "Лиза",
-        "time": [14, 20]
-    },
-    {
-        "number": 69,
-        "name": "Екатерина",
-        "time": [8, 10]
-    },
-    {
-        "number": 230,
-        "name": "Никита",
-        "time": [8, 18]
-    },
-    {
-        "number": 60,
-        "name": "Алла",
-        "time": [8, 18]
-    },
-    {
-        "number": 217,
-        "name": "Роман",
-        "time": [8, 18]
+var timetable = {
+        "214": {
+            "name": "Рита",
+            "time": [14, 19]
+        },
+        "187": {
+            "name": "Лиза",
+            "time": [14, 20]
+        },
+        "69": {
+            "name": "Екатерина",
+            "time": [8, 10]
+        },
+        "230": {
+            "name": "Никита",
+            "time": [8, 18]
+        },
+        "60": {
+            "name": "Алла",
+            "time": [8, 18]
+        },
+        "217": {
+            "name": "Роман",
+            "time": [8, 18]
+        }
     }
-];
+;
 var openHour = 8;
 var closeHour = 20;
 var diagramLineSize = 1068;
@@ -41,9 +36,13 @@ var diagram = document.querySelector(".diagram");
 
 var generateTimetable = function (timetable) {
     // Шкала времени
+    var numberOfCrew = 0;
+    for(var crew in timetable){
+        numberOfCrew++;
+    }
     var documentHead = document.querySelector("head");
     var headStyle = document.createElement("style");
-    headStyle.innerHTML = ".diagram__time-value::after { height: " + (timetable.length * diagramLineHeight + 9) + "px;}";
+    headStyle.innerHTML = ".diagram__time-value::after { height: " + (numberOfCrew * diagramLineHeight + 14) + "px;}";
     documentHead.appendChild(headStyle);
 
     var timeValuesList = document.createElement("ul");
@@ -60,14 +59,14 @@ var generateTimetable = function (timetable) {
     // Список работников
     var crewList = document.createElement("ul");
     crewList.classList.add("diagram__crew-list");
-    for (var i = 0; i < timetable.length; i++) {
+    for (var i in timetable) {
 
         var listItem = document.createElement("li");
         listItem.classList.add("diagram__crew");
 
         var crewName = document.createElement("b");
         crewName.classList.add("diagram__crew-name");
-        crewName.textContent = timetable[i]["number"] + " " + timetable[i]["name"];
+        crewName.textContent = i + " " + timetable[i]["name"];
 
         var timeline = document.createElement("div");
         timeline.classList.add("diagram__crew-time");
@@ -75,7 +74,7 @@ var generateTimetable = function (timetable) {
 
         var timeblock = document.createElement("div");
         timeblock.classList.add("diagram__time-block");
-        timeblock.setAttribute('data-crew-number', timetable[i]["number"]);
+        timeblock.setAttribute('data-crew-number', i);
         var blockOffset = cellSize * (timetable[i]["time"][0] - openHour);
         timeblock.style.left = blockOffset + "px";
         var blockWidth = cellSize * (timetable[i]["time"][1] - timetable[i]["time"][0]);
@@ -155,15 +154,13 @@ interact('.diagram__time-block')
 
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height);
+        // target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height);
 
-        for (var i = 0; i < timetable.length; i++) {
-            if (timetable[i]["number"] == target.dataset.crewNumber) {
-                timetable[i]["time"][0] = openHour + (target.dataset.x / cellSize);
-                timetable[i]["time"][1] = timetable[i]["time"][0] + (parseInt(target.style.width) / cellSize);
-                console.log(timetable[i]["time"])
-            }
-        }
+        var crewNumber = target.dataset.crewNumber;
+        timetable[crewNumber]["time"][0] = timetable[crewNumber]["time"][0] + (event.deltaRect.left / cellSize);
+        timetable[crewNumber]["time"][1] = timetable[crewNumber]["time"][0] + (parseInt(target.style.width) / cellSize);
+        console.log(timetable[crewNumber]["time"])
+
     })
     .on('dragmove resizestart', function (event) {
         console.log(event.type);
@@ -185,15 +182,14 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
-    target.textContent = event.dx + " " + event.dy;
+    // target.textContent = event.dx + " " + event.dy;
 
-    for (var i = 0; i < timetable.length; i++) {
-        if (timetable[i]["number"] == target.dataset.crewNumber) {
-            timetable[i]["time"][0] = timetable[i]["time"][0] + (event.dx / cellSize);
-            timetable[i]["time"][1] = timetable[i]["time"][1] + (event.dx / cellSize);
-            console.log(timetable[i]["time"])
-        }
-    }
+    var crewNumber = target.dataset.crewNumber;
+
+    timetable[crewNumber]["time"][0] = timetable[crewNumber]["time"][0] + (event.dx / cellSize);
+    timetable[crewNumber]["time"][1] = timetable[crewNumber]["time"][1] + (event.dx / cellSize);
+    console.log(timetable[crewNumber]["time"])
+
 }
 
 /* Перестановка строк местами */
@@ -202,7 +198,7 @@ var sortable = Sortable.create(el, {
     animation: 150,
     filter: ".diagram__time-block",
     handle: ".diagram__crew-name",
-    onEnd: function (/**Event*/evt) {
+    onEnd: function (evt) {
         var itemEl = evt.item;  // dragged HTMLElement
         console.log(evt.to);    // target list
         console.log(evt.from);  // previous list
@@ -212,10 +208,11 @@ var sortable = Sortable.create(el, {
 });
 
 /*Проверка выполнения задания*/
-var checkButton = document.querySelector(".diagram__button--check-task");
+var checkButton = document.querySelector(".task__button--check-task");
 checkButton.addEventListener("click", function () {
     var timeList = document.querySelectorAll(".diagram__crew");
     for (var i = 0; i < timeList.length; i++) {
-        console.log(timeList[i].querySelector("b").textContent.split(" ")[0]);
+        var crewNumber = timeList[i].querySelector(".diagram__crew-time").querySelector(".diagram__time-block").dataset.crewNumber;
+
     }
 });
