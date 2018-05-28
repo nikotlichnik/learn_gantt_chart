@@ -23,6 +23,38 @@
     hyphens: auto;
 }
 
+.task__list {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.task__list li {
+    font-weight: 200;
+    letter-spacing: 1px;
+    line-height: 28px;
+    text-indent: 20px;
+    hyphens: auto;
+}
+
+.task__result-list{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.task__result-list li{
+    font-weight: 200;
+    letter-spacing: 1px;
+    line-height: 28px;
+    text-indent: 20px;
+    hyphens: auto;
+}
+
 .task__results {
     grid-area: result;
 }
@@ -49,6 +81,18 @@
     display: none;
 
     color: var(--wrong-red);
+}
+
+.task__result-list{
+    display: none;
+}
+
+.task__result-list--wrong{
+    color: var(--wrong-red);
+}
+
+.task__result--condition{
+    display: none;
 }
 
 .task__image {
