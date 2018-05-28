@@ -1,28 +1,27 @@
 var timetable = {
-        "60": {
-            "name": "Алла",
-            "time": [10, 18]
-        },
         "69": {
             "name": "Екатерина",
-            "time": [15, 20]
+            "time": [16, 19]
         },
         "187": {
             "name": "Лиза",
-            "time": [8, 14]
+            "time": [10, 16]
         },
         "214": {
             "name": "Рита",
-            "time": [11, 18]
+            "time": [15, 20]
         },
         "217": {
             "name": "Роман",
-            "time": [10, 16]
+            "time": [10, 18]
         },
-
+        "60": {
+            "name": "Алла",
+            "time": [8, 14]
+        },
         "230": {
             "name": "Никита",
-            "time": [16, 19]
+            "time": [11, 18]
         }
     }
 ;
@@ -31,30 +30,6 @@ var closeHour = 20;
 var diagramLineSize = 1068;
 var diagramLineHeight = 54;
 var cellSize = diagramLineSize / (closeHour - openHour);
-
-// Отображение статуса задания
-var setTaskStatus = function(task){
-    document.querySelector(".page-main__is-done--correct").style.display = "none";
-    document.querySelector(".page-main__is-done--wrong").style.display = "none";
-    document.querySelector(".page-main__is-done--no-result").style.display = "none";
-
-    var storageResult = localStorage.getItem(task);
-    var mark;
-    switch (storageResult) {
-        case "done_correct":
-            mark = document.querySelector(".page-main__is-done--correct");
-            break;
-        case "done_wrong":
-            mark = document.querySelector(".page-main__is-done--wrong");
-            break;
-        default:
-            mark = document.querySelector(".page-main__is-done--no-result");
-            break;
-    }
-    mark.style.display = "inline";
-};
-
-setTaskStatus("task1");
 
 /* Генерация диаграммы из данных выше*/
 var diagram = document.querySelector(".diagram");
@@ -118,6 +93,104 @@ var generateTimetable = function (timetable) {
 
 generateTimetable(timetable);
 
+/* Инициализация механизма интерактивности диаграммы */
+var gridTarget = interact.createSnapGrid({
+    x: cellSize,
+    y: 44,
+    offset: {x: 0, y: 0}
+});
+
+
+interact('.diagram__time-block')
+    .draggable({
+        origin: 'parent',
+        snap: {
+            targets: [gridTarget],
+            range: Infinity,
+            relativePoints: [{x: 0, y: 0}]
+        },
+        restrict: {
+            restriction: "parent",
+            elementRect: {top: 0, left: 0, bottom: 1, right: 1}
+        },
+        // enable autoScroll
+        autoScroll: true,
+
+        // call this function on every dragmove event
+        onmove: dragMoveListener
+    })
+    .resizable({
+        snapSize: {
+            targets: [gridTarget]
+        },
+        edges: {left: true, right: true},
+
+        // keep the edges inside the parent
+        restrictEdges: {
+            outer: 'parent'
+        },
+
+        // minimum size
+        restrictSize: {
+            min: {width: cellSize, height: 44},
+            max: {width: diagramLineSize, height: 44}
+        }
+    })
+    .on('resizemove', function (event) {
+        var target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0),
+            y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+        // update the element's style
+        target.style.width = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
+
+        // translate when resizing from top or left edges
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
+
+        target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px,' + y + 'px)';
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+        // target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height);
+
+        var crewNumber = target.dataset.crewNumber;
+        timetable[crewNumber]["time"][0] = timetable[crewNumber]["time"][0] + (event.deltaRect.left / cellSize);
+        timetable[crewNumber]["time"][1] = timetable[crewNumber]["time"][0] + (parseInt(target.style.width) / cellSize);
+        console.log(timetable[crewNumber]["time"])
+
+    })
+    .on('dragmove resizestart', function (event) {
+        console.log(event.type);
+    });
+
+
+function dragMoveListener(event) {
+    var target = event.target,
+        // keep the dragged position in the data-x/data-y attributes
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    // translate the element
+    target.style.webkitTransform =
+        target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the position attributes
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+
+    // target.textContent = event.dx + " " + event.dy;
+
+    var crewNumber = target.dataset.crewNumber;
+
+    timetable[crewNumber]["time"][0] = timetable[crewNumber]["time"][0] + (event.dx / cellSize);
+    timetable[crewNumber]["time"][1] = timetable[crewNumber]["time"][1] + (event.dx / cellSize);
+    console.log(timetable[crewNumber]["time"])
+
+}
 
 /* Перестановка строк местами */
 var el = document.querySelector('.diagram__crew-list');
@@ -125,23 +198,20 @@ var sortable = Sortable.create(el, {
     animation: 150,
     filter: ".diagram__time-block",
     handle: ".diagram__crew-name",
-    ghostClass: "diagram__crew-chosen"
+    onEnd: function (evt) {
+        var itemEl = evt.item;  // dragged HTMLElement
+        console.log(evt.to);    // target list
+        console.log(evt.from);  // previous list
+        console.log(evt.oldIndex);  // element's old index within old parent
+        console.log(evt.newIndex);  // element's new index within new parent
+    }
 });
 
 /*Проверка выполнения задания*/
 var checkButton = document.querySelector(".task__button--check-task");
 checkButton.addEventListener("click", function () {
-    // Убираем сообщения о результате, если такие имеются
-    var correctMessage = document.querySelector(".task__result--correct");
-    var wrongMessage = document.querySelector(".task__result--wrong");
-    correctMessage.style.display = "none";
-    wrongMessage.style.display = "none";
-
-    // Получаем список узлов
     var timeList = document.querySelectorAll(".diagram__crew");
-    // Переменная правильности результата
     var isCorrect = true;
-    // Проходимся по элементам и смотрим
     for (var i = 0; i < timeList.length; i++) {
         var crewNumber = timeList[i].querySelector(".diagram__crew-time").querySelector(".diagram__time-block").dataset.crewNumber;
         var crewBeginTime = timetable[crewNumber]["time"][0];
@@ -156,13 +226,9 @@ checkButton.addEventListener("click", function () {
             break;
         }
     }
-
     if (isCorrect) {
-        correctMessage.style.display = "block";
-        localStorage.setItem("task1", "done_correct");
+        alert("Верно!");
     } else {
-        wrongMessage.style.display = "block";
-        localStorage.setItem("task1", "done_wrong");
+        alert("Неверно!");
     }
-    setTaskStatus("task1");
 });

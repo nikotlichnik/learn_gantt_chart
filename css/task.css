@@ -39,7 +39,7 @@
     hyphens: auto;
 }
 
-.task__result-list{
+.task__result-list {
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
@@ -47,7 +47,7 @@
     list-style: none;
 }
 
-.task__result-list li{
+.task__result-list li {
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 28px;
@@ -83,15 +83,15 @@
     color: var(--wrong-red);
 }
 
-.task__result-list{
+.task__result-list {
     display: none;
 }
 
-.task__result-list--wrong{
+.task__result-list--wrong {
     color: var(--wrong-red);
 }
 
-.task__result--condition{
+.task__result--condition {
     display: none;
 }
 
@@ -105,6 +105,20 @@
 .task__actions {
     grid-area: actions;
     display: grid;
+}
+
+.task__actions--task2 {
+    grid-area: actions;
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    grid-template-areas: "answer check";
+}
+
+.task__actions--task3 {
+    grid-area: actions;
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    grid-template-areas: "answer check";
 }
 
 .task__button {
@@ -140,8 +154,34 @@
     background-color: var(--check-button-yellow-active);
 }
 
+.task__button--check-task2 {
+    grid-area: check;
+}
+
+.task__input {
+    height: 37px;
+    padding-left: 15px;
+
+    color: var(--font-black);
+
+    background: var(--white);
+    border: 2px solid var(--lightgrey);
+    border-radius: 4px;
+}
+
+.task__input-label--bold{
+    grid-area: answer;
+
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+
+.task__input-label--bold{
+
+}
+
 .task__diagram {
     grid-area: task;
     border: 1px solid var(--lightgrey);
 }
-

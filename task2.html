@@ -9,13 +9,13 @@
 
 <header class="page-header">
     <a class="page-header__title" href="index.html">
-        <h1 class="page-header__course-name">JS курс по созданию диаграмм Гантта</h1>
+        <h1 class="page-header__course-name">Обучающий курс "Диаграмма Гантта"</h1>
     </a>
 </header>
 
 <main class="page-main">
     <h2 class="page-main__title">
-        Задание 1. Сделаем красиво и понятно
+        Задание 2. Идём в тратить бонусные баллы в магазин
         <small class="page-main__is-done page-main__is-done--correct">✔ выполнено</small>
         <small class="page-main__is-done page-main__is-done--no-result">✘ ещё не выполнялось</small>
         <small class="page-main__is-done page-main__is-done--wrong">✘ выполнено неверно</small>
@@ -24,31 +24,46 @@
     <section class="task">
         <section class="task__theory">
             <p class="task__paragraph">
-                Диаграмма Гантта предназначена для наглядного представления начала и окончания сроков некоторых
-                процессов. Рассмотрим пример диаграммы, на которой изображена продолжительность смен работников в
-                кофейне.
+                В прошлом задании мы привели диаграмму к читаемому виду. Теперь научимся получать необходимые данные из
+                диаграмм подобного рода. Обратим внимание на шкалу в верхней части диаграммы. Сейчас на ней изображены
+                дни месяца. Линия, идущая от обозначения конкретного дня месяца обозначает начало данного дня и конец
+                предыдущего. Диаграмма читается слева направо.
+                Пространство после линии обозначает протяжённость данного дня. Обратив внимание на пересечения
+                линии даты с горизонтальными полосами процессов, можно понять какие процессы будут активны в данный
+                момент времени.
             </p>
             <p class="task__paragraph">
-                Давайте расставим работников на диаграмме в таком порядке сверху вниз, чтобы их смены начинались
-                последовательно. Если несколько смен начинается в одно время, то ниже должна оказаться та, которая заканчивается
-                позже.
+                В вашем любимом магазине действует система накопления баллов на бонусной карте. Однако эти баллы не
+                живут вечно и иногда сгорают.
             </p>
             <p class="task__paragraph">
-                Наведите курсор на область с табельным номером и именем работника и перетаскивайте полосы вверх-вниз.
+                На диаграмме ниже изображены сроки "жизни" и количество ваших баллов, которые будут вам доступны по
+                разным поводам в течение мая 2018 года. В конце срока жизни баллы сгорают, и вы не можете ими
+                воспользоваться.
+            </p>
+            <p class="task__paragraph">
+                Введите в поле для ответа количество баллов, которые вы сможете потратить, если пойдёте в магазин 20
+                мая.
             </p>
         </section>
-        <section class="task__actions task__actions--task1">
-            <button class="task__button task__button--check-task">Проверить</button>
+        <section class="task__actions task__actions--task2">
+            <label class="task__input-label--bold">
+                Ответ:
+                <input id="input" class="task__input task__input--task3" type="number" name="answer-task2" min="0"
+                       max="10000">
+            </label>
+            <button class="task__button task__button--check-task task__button--check-task2">Проверить</button>
         </section>
         <section class="task__diagram diagram">
-            <b class="diagram__date">5 мая · Суббота</b>
+            <b class="diagram__date">Май · 2018</b>
         </section>
         <section class="task__results">
             <p class="task__result task__result--correct">
-                Правильно! В таком упорядоченном виде гораздо проще проводить анализ диаграммы, чем мы займёмся в следующем задании.
+                Правильно! Из этого можно сделать вывод, что лучше сходить в магазин 19-го числа, когда будет доступно
+                на 1400 баллов больше.
             </p>
-            <p class="task__result task__result--wrong">
-                Что-то не так. Проверьте соответствует ли расположение полос в диаграмме условиям задания.
+            <p class="task__result task__result--wrong task__result--task2">
+                Что-то не так. Попробуй ещё раз.
             </p>
         </section>
     </section>
@@ -62,8 +77,8 @@
 <footer class="page-footer">
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.3/dist/interact.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script>
+<script src="js/interact.min.js"></script>
+<script src="js/sortable.min.js"></script>
 <script src="js/script2.js"></script>
 </body>
 </html>

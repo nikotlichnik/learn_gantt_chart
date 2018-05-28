@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обучающий курс по JavaScript. Создание диаграммы Гантта. Задание 1.</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-body">
+
+<header class="page-header">
+    <a class="page-header__title" href="index.html">
+        <h1 class="page-header__course-name">Обучающий курс "Диаграмма Гантта"</h1>
+    </a>
+</header>
+
+<main class="page-main">
+    <h2 class="page-main__title">
+        Задание 5. Исправляем проблемы
+        <small class="page-main__is-done page-main__is-done--correct">✔ выполнено</small>
+        <small class="page-main__is-done page-main__is-done--no-result">✘ ещё не выполнялось</small>
+        <small class="page-main__is-done page-main__is-done--wrong">✘ выполнено неверно</small>
+    </h2>
+
+    <section class="task">
+        <section class="task__theory">
+            <p class="task__paragraph">
+                В прошлом задании мы привели диаграмму к читаемому виду. Теперь научимся решать проблемы, используя
+                данную диаграмму на знакомом примере смен работников кофейни.
+            </p>
+            <p class="task__paragraph">
+                Работники этой кофейни — студенты, у которых есть возможность каждую неделю указывать время, когда они
+                хотят работать. Однако расписание, полностью составленное на основе этих возможностей, не соответствует
+                ожиданиям менеджера, составляющего расписание.
+            </p>
+            <p class="task__paragraph">
+                На диаграмме ниже построены временные возможности сотрудников. Вы менеджер расписания. Приведите
+                расписание в читаемый вид и исправьте смены сотрудников так, чтобы:
+            </p>
+            <ul class="task__list">
+                <li>- были изменены смены не более четырёх сотрудников;</li>
+                <li>- в период работы кофейни с 8:00 до 20:00 не было ситуаций, когда на смене нет ни одного
+                    работника;
+                </li>
+                <li>- в период с 11:00 до 15:00 в кофейне было минимум три работника;</li>
+                <li>- продолжительность смен работников была не меньше трёх и не более восьми часов.</li>
+            </ul>
+            <p class="task__paragraph">
+                Для изменения времени смен работников наведите курсор на край полосы, обозначающей смену, нажмите и
+                перетаскивайте этот край для изменения времени смены.
+            </p>
+        </section>
+        <section class="task__actions task__actions--task1">
+            <button class="task__button task__button--check-task">Проверить</button>
+        </section>
+        <section class="task__diagram diagram">
+            <b class="diagram__date">5 мая · Суббота</b>
+        </section>
+        <section class="task__results">
+            <p class="task__result task__result--correct">
+                Правильно! Вы спасли работу кофейни из-под угрозы отсутствия работников на сменах и выполнили все
+                дополнительные условия.
+            </p>
+            <p class="task__result task__result--wrong task__result--task2">
+                Что-то не так. Проверь, выполнены ли все условия:
+            </p>
+            <ul class="task__result-list task__result-list--wrong">
+                <li class="task__result--condition task__result--condition1">- Диаграмма приведена к читаемому виду
+                    (смотри Задание 1).
+                </li>
+                <li class="task__result--condition task__result--condition2">- Были изменены смены не более четырёх
+                    сотрудников.
+                </li>
+                <li class="task__result--condition task__result--condition3">- В период рабочего дня кофейни с 8:00 до
+                    20:00 нет ситуаций, когда на смене нет ни одного работника.
+                </li>
+
+                <li class="task__result--condition task__result--condition4">- В период с 11:00 до 15:00 в кофейне
+                    находится минимум три работника.
+                </li>
+
+                <li class="task__result--condition task__result--condition5">- Продолжительность смен работников не
+                    меньше трёх и не более восьми часов.
+                </li>
+            </ul>
+
+        </section>
+    </section>
+
+    <section class="page-main__controls">
+        <a class="page-main__control" href="task4.html">Назад</a>
+        <a class="page-main__control" href="index.html">Дальше</a>
+    </section>
+</main>
+
+<footer class="page-footer">
+
+</footer>
+<script src="js/interact.min.js"></script>
+<script src="js/sortable.min.js"></script>
+<script src="js/script5.js"></script>
+</body>
+</html>

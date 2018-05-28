@@ -50,6 +50,14 @@
     pointer-events: none;
 }
 
+.diagram__time-value--task3{
+    cursor: pointer;
+}
+
+.diagram__time-value--task3:hover::after{
+    background-color: var(--time-line-hover);
+}
+
 .diagram__crew-list {
     grid-area: crew-time;
 
@@ -67,9 +75,16 @@
     padding-bottom: 10px;
 }
 
+.diagram__crew-chosen{
+    background-color: var(--table-border);
+}
+
 .diagram__crew-name {
     grid-area: crew-name;
     align-self: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-right: 15px;
     padding-left: 10px;
 
     font-weight: 400;
@@ -78,6 +93,15 @@
     cursor: move;
     user-select: none;
 }
+
+.diagram__crew-name--no-pointer{
+    cursor: text;
+    user-select: auto;
+}
+
+/*.diagram__crew-name:hover:not(:active){*/
+    /*background-color: var(--table-border);*/
+/*}*/
 
 .diagram__crew-time {
     grid-area: crew-time;
@@ -94,6 +118,13 @@
     left: 0;
 
     background-color: var(--time-block-normal);
+}
+
+.diagram__time-block--task2{
+    padding-left: 16px;
+    padding-top: 10px;
+
+    box-sizing: border-box;
 }
 
 .diagram__time-block:hover {

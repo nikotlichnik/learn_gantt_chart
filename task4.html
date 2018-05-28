@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Обучающий курс по JavaScript. Создание диаграммы Гантта. Задание 4.</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-$END$
+<body class="page-body">
+
+<header class="page-header">
+    <a class="page-header__title" href="index.html">
+        <h1 class="page-header__course-name">Обучающий курс "Диаграмма Гантта"</h1>
+    </a>
+</header>
+
+<main class="page-main">
+    <h2 class="page-main__title">
+        Задание 4. Изучаем план работ
+        <small class="page-main__is-done page-main__is-done--correct">✔ выполнено</small>
+        <small class="page-main__is-done page-main__is-done--no-result">✘ ещё не выполнялось</small>
+        <small class="page-main__is-done page-main__is-done--wrong">✘ выполнено неверно</small>
+    </h2>
+
+    <section class="task">
+        <section class="task__theory">
+            <p class="task__paragraph">
+                Продолжая изучать диаграммы, проанализируем продолжительность конкретного процесса.
+            </p>
+            <p class="task__paragraph">
+                На диаграмме ниже изображены сроки этапов разработки программного обеспечения в IT-компании.
+            </p>
+            <p class="task__paragraph">
+                Введите в поле для ответа количество дней, которое занимает процесс тестирования.
+            </p>
+        </section>
+        <section class="task__actions task__actions--task2">
+            <label class="task__input-label--bold">
+                Ответ:
+                <input id="input" class="task__input task__input--task4" type="number" name="answer-task2" min="0"
+                       max="10000">
+            </label>
+            <button class="task__button task__button--check-task task__button--check-task2">Проверить</button>
+        </section>
+        <section class="task__diagram diagram">
+            <b class="diagram__date">Июнь · 2018</b>
+        </section>
+        <section class="task__results">
+            <p class="task__result task__result--correct">
+                Правильно! Теперь вы умеете отлично читать данные с диаграмм Гантта.
+            </p>
+            <p class="task__result task__result--wrong task__result--task2">
+                Что-то не так. Попробуйте ещё раз.
+            </p>
+        </section>
+    </section>
+
+    <section class="page-main__controls">
+        <a class="page-main__control" href="task3.html">Назад</a>
+        <a class="page-main__control" href="task5.html">Дальше</a>
+    </section>
+</main>
+
+<footer class="page-footer">
+
+</footer>
+<script src="js/interact.min.js"></script>
+<script src="js/sortable.min.js"></script>
+<script src="js/script4.js"></script>
 </body>
 </html>
