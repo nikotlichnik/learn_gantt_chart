@@ -39,6 +39,25 @@
     hyphens: auto;
 }
 
+.task__table-figure {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.task__table {
+    border-collapse: collapse;
+}
+
+.task__table td,
+.task__table th {
+    padding: 10px;
+
+    border: 1px solid var(--gantt-busy);
+}
+
 .task__result-list {
     margin: 0;
     margin-bottom: 20px;
@@ -169,7 +188,7 @@
     border-radius: 4px;
 }
 
-.task__input-label--bold{
+.task__input-label--bold {
     grid-area: answer;
 
     font-weight: 400;
@@ -177,7 +196,7 @@
     line-height: 28px;
 }
 
-.task__input-label--bold{
+.task__input-label--bold {
 
 }
 

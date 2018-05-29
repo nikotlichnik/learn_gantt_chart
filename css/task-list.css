@@ -6,8 +6,8 @@
 }
 
 .task-list__link {
-    display: block;
-    padding: 10px 20px;
+    display: flex;
+    padding: 13px 20px;
     margin-bottom: 20px;
 
     border-radius: 4px;

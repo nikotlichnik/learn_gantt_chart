@@ -33,6 +33,11 @@
     color: var(--modal-bg-grey);
 }
 
+.page-main__is-done--show{
+    display: inline;
+    margin-left: auto;
+}
+
 .page-main__theory {
     margin-bottom: 20px;
 }
