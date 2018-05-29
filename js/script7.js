@@ -1,198 +1,80 @@
-var developingPeriodsAnswer = {
-    "1": {
-        "name": "Василий",
-        "skills": ["HTML", "CSS", "Photoshop"],
-        "time": {
-            "122": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [4, 7]
-            },
-            "156": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [7, 9]
-            },
-            "107": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [11, 16]
-            }
-        }
+var tickets = {
+    "568": {
+        "name": "Спроектировать интерфейс интернет-магазина",
+        "skills": ["Photoshop", "Sketch"],
+        "dates": [16, 21]
     },
-    "2": {
-        "name": "Мария",
-        "skills": ["HTML", "CSS", "JavaScript"],
-        "time": {
-            "199": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [6, 9]
-            },
-            "128": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [9, 11]
-            },
-            "250": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [13, 16]
-            },
-            "150": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [16, 18]
-            }
-        }
+    "293": {
+        "name": "Сверстать веб-страницу каталога",
+        "skills": ["HTML", "CSS"],
+        "dates": [20, 23]
     },
-    "3": {
-        "name": "Константин",
-        "skills": ["Python", "Node.js", "PHP"],
-        "time": {
-            "168": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [8, 12]
-            },
-            "195": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [8, 12]
-            },
-            "219": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [14, 18]
-            }
-        }
+    "753": {
+        "name": "Сделать обработку форм на сервере",
+        "skills": ["PHP"],
+        "dates": [22, 23]
     },
-    "4": {
-        "name": "Пётр",
-        "skills": ["HTML", "CSS", "JavaScript", "Python", "Node.js", "PHP"],
-        "time": {
-            "175": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [5, 7]
-            },
-            "178": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [11, 14]
-            },
-            "185": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [15, 18]
-            }
-        }
+    "951": {
+        "name": "Реализовать онлайн-игру по техническому заданию",
+        "skills": ["HTML", "CSS", "JavaScript", "Node.js"],
+        "dates": [16, 21]
     },
-    "5": {
-        "name": "Дарья",
-        "skills": ["Photoshop", "Illustrator", "Sketch"],
-        "time": {
-            "134": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [4, 7]
-            },
-            "109": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [9, 13]
-            },
-            "101": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [14, 18]
-            }
-        }
-    }
-};
-var developingPeriods = {
-    "1": {
-        "name": "Василий",
-        "skills": ["HTML", "CSS", "Photoshop"],
-        "time": {
-            "122": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [4, 7]
-            },
-            "156": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [7, 9]
-            },
-            "107": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [11, 16]
-            }
-        }
+    "124": {
+        "name": "Протестировать вёрстку готового проекта",
+        "skills": ["HTML", "CSS"],
+        "dates": [16, 18]
     },
-    "2": {
-        "name": "Мария",
-        "skills": ["HTML", "CSS", "JavaScript"],
-        "time": {
-            "199": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [6, 9]
-            },
-            "128": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [9, 11]
-            },
-            "250": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [13, 16]
-            },
-            "150": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [16, 18]
-            }
-        }
+    "826": {
+        "name": "Исправить ошибки программы",
+        "skills": ["Python"],
+        "dates": [20, 22]
     },
-    "3": {
-        "name": "Константин",
-        "skills": ["Python", "Node.js", "PHP"],
-        "time": {
-            "168": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [8, 12]
-            },
-            "219": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [14, 18]
-            }
-        }
+    "168": {
+        "name": "Реализация функционала веб-приложения",
+        "skills": ["Node.js", "PHP"],
+        "dates": [18, 20]
     },
-    "4": {
-        "name": "Пётр",
-        "skills": ["HTML", "CSS", "JavaScript", "Python", "Node.js", "PHP"],
-        "time": {
-            "175": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [5, 7]
-            },
-            "178": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [11, 14]
-            },
-            "185": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [15, 18]
-            }
-        }
-    },
-    "5": {
-        "name": "Дарья",
-        "skills": ["Photoshop", "Illustrator", "Sketch"],
-        "time": {
-            "134": {
-                "ticket": "Вёрстка лендинга",
-                "duration": [4, 7]
-            },
-            "109": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [9, 13]
-            },
-            "101": {
-                "ticket": "Создание дизайна магазина",
-                "duration": [14, 18]
-            }
-        }
+    "546": {
+        "name": "Создание дизайна иконок",
+        "skills": ["Illustrator", "Photoshop"],
+        "dates": [18, 23]
     }
 };
 
-var openHour = 4;
-var closeHour = 18;
+var developingPeriods = {
+    "1": {
+        "name": "Василий",
+        "skills": ["HTML", "CSS", "JavaScript"],
+        "time": {}
+    },
+    "2": {
+        "name": "Мария",
+        "skills": ["Photoshop", "Illustrator", "Sketch"],
+        "time": {}
+    },
+    "3": {
+        "name": "Константин",
+        "skills": ["Python", "Node.js", "PHP"],
+        "time": {}
+    },
+    "4": {
+        "name": "Пётр",
+        "skills": ["HTML", "CSS", "JavaScript", "Node.js", "PHP"],
+        "time": {}
+    },
+    "5": {
+        "name": "Дарья",
+        "skills": ["HTML", "CSS", "Photoshop", "Illustrator"],
+        "time": {}
+    }
+};
+
+var openHour = 16;
+var closeHour = 23;
 var diagramLineSize = 1068;
 var diagramLineHeight = 54;
 var cellSize = diagramLineSize / (closeHour - openHour);
-var currentTask = "task6";
+var currentTask = "task7";
 
 // Отображение статуса задания
 var setTaskStatus = function (task) {
@@ -290,7 +172,7 @@ var generateTimetable = function (timetable) {
 /* Удаление блока тикета с диаграммы */
 var setListeners = function () {
     var timeBlocks = document.querySelectorAll(".diagram__time-block");
-    for(var i = 0; i < timeBlocks.length; i++){
+    for (var i = 0; i < timeBlocks.length; i++) {
 
         var block = timeBlocks[i];
         console.log(block.dataset.crewNumber);
@@ -406,26 +288,101 @@ function dragMoveListener(event) {
     console.log(developingPeriods[crewNumber]["time"])
 }
 
+var assert = chai.assert;
 
 var checkTask = function () {
-    var correctAnswer = 7;
-    var userAnswer = document.getElementById("input").value;
-
-    /** Выводим и запоминаем результат **/
-        // Убираем сообщения о результате, если такие имеются
-
+    // Убираем сообщения о результате, если такие имеются
     var correctMessage = document.querySelector(".task__result--correct");
     var wrongMessage = document.querySelector(".task__result--wrong");
+    var wrongList = document.querySelector(".task__result-list--wrong");
+    var conditions = document.querySelectorAll(".task__result--condition");
 
+    for (var i = 0; i < conditions.length; i++) {
+        conditions[i].style.display = "none";
+    }
+    wrongList.style.display = "none";
     correctMessage.style.display = "none";
     wrongMessage.style.display = "none";
 
-    var isCorrect = userAnswer == correctAnswer;
+
+    /** Проверяем, что у всех есть два выходных **/
+    /** Проверяем, что все задачи соответствуют работникам **/
+    var minNumOfDayOff = 2;
+    var daysInPeriod = 7;
+    var isNormalDayOff = true;
+    var isCorrectMatch = true;
+    var isCorrectTicketPeriods = true;
+
+    var numOfAssignedTasks = 0;
+    var assignedTasks = [];
+    for (var worker in developingPeriods) {
+        var workerTickets = developingPeriods[worker]["time"];
+        var workDays = 0;
+        for (var ticket in workerTickets) {
+            // Считаем рабочие дни у конкретного работника
+            workDays += workerTickets[ticket]["duration"][1] - workerTickets[ticket]["duration"][0];
+            numOfAssignedTasks++;
+            // Проверка соответствия навыков конкретного тикета и работника
+            try {
+                assert.includeMembers(developingPeriods[worker]["skills"], tickets[ticket]["skills"]);
+            }
+            catch (err) {
+                isCorrectMatch = false;
+            }
+
+            // Запоминаем тикет
+            assignedTasks.push(ticket);
+
+            //Проверяем соответствие сроков тикета
+            var diagramBegin = workerTickets[ticket]["duration"][0];
+            var diagramEnd = workerTickets[ticket]["duration"][1];
+            var answerBegin = tickets[ticket]["dates"][0];
+            var answerEnd = tickets[ticket]["dates"][1];
+
+            if (diagramBegin != answerBegin || diagramEnd != answerEnd) {
+                isCorrectTicketPeriods = false;
+            }
+        }
+        // Проверка количества выходных
+        if (daysInPeriod - workDays < minNumOfDayOff) {
+            isNormalDayOff = false;
+        }
+    }
+
+    var numOfTicketsAnswer = 0;
+    var assignedTasksAnswer = [];
+    for (var ticket in tickets) {
+        assignedTasksAnswer.push(ticket);
+        numOfTicketsAnswer++;
+    }
+
+    // Сравниваем количество
+    // var isCorrectNumOfAssignedTasks = true;
+    // if (numOfTicketsAnswer != numOfAssignedTasks) isCorrectNumOfAssignedTasks = false;
+
+    // Сравниваем, что все есть
+    var isCorrectOneTime = true;
+    try {
+        assert.sameMembers(assignedTasks, assignedTasksAnswer);
+    }
+    catch (err){
+        isCorrectOneTime = false;
+    }
+
+    /** Выводим и запоминаем результат **/
+    // var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectNumOfAssignedTasks && isCorrectOneTime;
+    var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectOneTime;
     if (isCorrect) {
         correctMessage.style.display = "block";
         localStorage.setItem(currentTask, "done_correct");
     } else {
         wrongMessage.style.display = "block";
+        wrongList.style.display = "block";
+        if (!isNormalDayOff) conditions[0].style.display = "list-item";
+        if (!isCorrectMatch) conditions[1].style.display = "list-item";
+        if (!isCorrectTicketPeriods) conditions[2].style.display = "list-item";
+        // if (!isCorrectNumOfAssignedTasks) conditions[3].style.display = "list-item";
+        if (!isCorrectOneTime) conditions[4].style.display = "list-item";
         localStorage.setItem(currentTask, "done_wrong");
     }
     setTaskStatus(currentTask);
@@ -443,7 +400,7 @@ assignButton.addEventListener("click", function (e) {
     var ticket = document.getElementById("ticketsList").value;
 
 
-    developingPeriods[worker]["time"][ticket]= {};
+    developingPeriods[worker]["time"][ticket] = {};
     developingPeriods[worker]["time"][ticket]["duration"] = [openHour, openHour + 1];
 
     var timeValuesList = document.querySelector(".diagram__time-lines");

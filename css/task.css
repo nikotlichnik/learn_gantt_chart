@@ -43,6 +43,42 @@
     hyphens: auto;
 }
 
+.task__tables{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task__table-workers{
+    width: 200px;
+}
+
+.task__table-skills{
+    width: 120px;
+}
+
+.task__table-issues{
+    width: 300px;
+}
+
+.task__table-dates{
+    width: 120px;
+}
+
+.task__skill{
+    display: inline-block;
+    padding: 0 5px;
+
+    color: var(--white);
+    font-weight: 400;
+    font-size: 18px;
+
+    background-color: var(--hover-text-blue);
+    border-radius: 4px;
+}
+
 .task__table-figure {
     margin: 0;
     margin-bottom: 20px;

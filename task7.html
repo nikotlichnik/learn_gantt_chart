@@ -1,10 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Обучающий курс по JavaScript. Создание диаграммы Гантта. Задание 7.</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-$END$
+<body class="page-body">
+
+<header class="page-header">
+    <a class="page-header__title" href="index.html">
+        <h1 class="page-header__course-name">Обучающий курс "Диаграмма Гантта"</h1>
+    </a>
+</header>
+
+<main class="page-main">
+    <h2 class="page-main__title">
+        Задание 7. Составляем расписание
+        <small class="page-main__is-done page-main__is-done--correct">✔ выполнено</small>
+        <small class="page-main__is-done page-main__is-done--no-result">✘ ещё не выполнялось</small>
+        <small class="page-main__is-done page-main__is-done--wrong">✘ выполнено неверно</small>
+    </h2>
+
+    <section class="task task--6">
+        <section class="task__theory">
+            <p class="task__paragraph">
+                В финальном задании вам предстоит создать простенькую диаграмму Гантта, организующую работу работников
+                маленькой IT-компании.
+            </p>
+            <p class="task__paragraph">
+                В таблицах ниже представлен список ваших сотрудников и знаний, которыми они обладают, а также список
+                задач с номерами из системы отслеживания задач, сроками выполнения (включая последний день) и знаниями,
+                которые необходимы для выполнения данной задачи.
+            </p>
+            <figure class="task__tables">
+                <table class="task__table">
+                    <tr>
+                        <th class="task__table-workers">Работник</th>
+                        <th class="task__table-skills">Знания</th>
+                    </tr>
+                    <tr>
+                        <td>Василий</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                            <span class="task__skill">JavaScript</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Мария</td>
+                        <td class="task__table-skills"><span class="task__skill">Photoshop</span>
+                            <span class="task__skill">Illustator</span>
+                            <span class="task__skill">Sketch</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Константин</td>
+
+                        <td class="task__table-skills"><span class="task__skill">Node.js</span>
+                            <span class="task__skill">PHP</span>
+                            <span class="task__skill">Python</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Пётр</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                            <span class="task__skill">JavaScript</span>
+                            <span class="task__skill">Node.js</span>
+                            <span class="task__skill">PHP</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Дарья</td>
+                        <td class="task__table-skills"><span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                            <span class="task__skill">Photoshop</span>
+                            <span class="task__skill">Illustator</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="task__table">
+                    <tr>
+                        <th class="task__table-issues">Задача</th>
+                        <th class="task__table-skills">Необходимые навыки</th>
+                        <th class="task__table-dates">Срок исполнения</th>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#568 Спроектировать интерфейс интернет-магазина</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">Photoshop</span>
+                            <span class="task__skill">Sketch</span>
+                        </td>
+                        <td class="task__table-dates">16.07-20.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#293 Сверстать веб-страницу каталога</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                        </td>
+                        <td class="task__table-dates">20.07-22.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#753 Сделать обработку форм на сервере</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">PHP</span>
+                        </td>
+                        <td class="task__table-dates">22.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#951 Реализовать онлайн-игру по техническому заданию</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                            <span class="task__skill">JavaScript</span>
+                            <span class="task__skill">Node.js</span>
+                        </td>
+                        <td class="task__table-dates">16.07-20.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#124 Протестировать вёрстку готового проекта</td>
+                        <td class="task__table-skills"><span class="task__skill">HTML</span>
+                            <span class="task__skill">CSS</span>
+                        </td>
+                        <td class="task__table-dates">16.07-17.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#826 Исправить ошибки программы</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">Python</span>
+                        </td>
+                        <td class="task__table-dates">20.07-21.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#168 Реализация функционала веб-приложения</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">Node.js</span>
+                            <span class="task__skill">PHP</span>
+                        </td>
+                        <td class="task__table-dates">18.07-19.07</td>
+                    </tr>
+                    <tr>
+                        <td class="task__table-issues">#546 Создание дизайна иконок для веб-сайта</td>
+                        <td class="task__table-skills">
+                            <span class="task__skill">Illustrator</span>
+                            <span class="task__skill">Photoshop</span>
+                        </td>
+                        <td class="task__table-dates">18.07-22.07</td>
+                    </tr>
+                </table>
+            </figure>
+            <p class="task__paragraph">
+                Распределите все имеющиеся задачи между сотрудниками таким образом, чтобы работник обладал всеми
+                навыками, необходимыми для выполнения задачи. Также необходимо соблюсти условие, чтобы у каждого
+                работника на неделе было минимум два свободных от задач дня.
+            </p>
+            <p class="task__paragraph">
+                Механизм взаимодействия с диаграммой аналогичен предыдущему заданию.
+            </p>
+        </section>
+        <section class="task__actions">
+            <button class="task__button task__button--check-task task__button--check-task6">Проверить</button>
+        </section>
+        <section class="task__diagram-actions">
+            <div class="task__diagram-action-wrapper">
+                <label class="task__diagram-action-label" for="workersList">Работник: </label>
+                <select class="task__diagram-action-select" id="workersList">
+                    <option>--</option>
+                    <option value="1">Василий</option>
+                    <option value="2">Мария</option>
+                    <option value="3">Константин</option>
+                    <option value="4">Пётр</option>
+                    <option value="5">Дарья</option>
+                </select>
+            </div>
+            <div class="task__diagram-action-wrapper">
+                <label class="task__diagram-action-label" for="ticketsList">Задача: </label>
+                <select class="task__diagram-action-select" id="ticketsList">
+                    <option>--</option>
+                    <option value="568">#568 Спроектировать интерфейс интернет-магазина</option>
+                    <option value="293">#293 Сверстать веб-страницу каталога</option>
+                    <option value="753">#753 Сделать обработку форм на сервере</option>
+                    <option value="951">#951 Реализовать онлайн-игру по техническому заданию</option>
+                    <option value="124">#124 Протестировать вёрстку готового проекта</option>
+                    <option value="826">#826 Исправить ошибки программы</option>
+                    <option value="168">#168 Реализация функционала веб-приложения</option>
+                    <option value="546">#546 Создание дизайна иконок</option>
+                </select>
+            </div>
+            <button class="task__button task__button--assign-task">Назначить</button>
+        </section>
+        <section class="task__diagram diagram">
+            <b class="diagram__date">Июль · 2018</b>
+        </section>
+        <section class="task__results">
+            <p class="task__result task__result--correct">
+                Правильно! Вы успешно закончили курс по изучению диаграмм Гантта! Используйте данный вид диаграмм для
+                организации вашей деятельности. Находите ещё множество применений!
+            </p>
+            <p class="task__result task__result--wrong task__result--task2">
+                Что-то не так. Проверь, выполнены ли все условия:
+            </p>
+            <ul class="task__result-list task__result-list--wrong">
+                <li class="task__result--condition task__result--condition1">- Все работники имеют минимум два выходных
+                    дня
+                </li>
+                <li class="task__result--condition task__result--condition2">- Навыки работников включают в себя навыки,
+                    необходимые для выполнения задачи
+                </li>
+                <li class="task__result--condition task__result--condition3">- Сроки задач в диаграмме совпадают с теми,
+                    что указаны в условии
+                </li>
+                <li class="task__result--condition task__result--condition4">- Назначены все задачи из списка
+                </li>
+                <li class="task__result--condition task__result--condition5">- Назначены все задачи из списка и только один раз
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="page-main__controls">
+        <a class="page-main__control" href="task6.html">Назад</a>
+        <a class="page-main__control" href="index.html">К списку заданий</a>
+    </section>
+</main>
+
+<footer class="page-footer">
+
+</footer>
+<script src="js/interact.min.js"></script>
+<script src="js/sortable.min.js"></script>
+<script src="js/chai.js" type="text/javascript"></script>
+<script src="js/script7.js"></script>
 </body>
 </html>
