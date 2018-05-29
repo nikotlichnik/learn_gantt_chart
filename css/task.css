@@ -7,6 +7,10 @@
     margin-bottom: 20px;
 }
 
+.task--6 {
+    grid-template-areas: "theory theory theory" "diagram-actions diagram-actions diagram-actions" "task task task" "actions actions actions" "result result result";
+}
+
 .task__theory {
     grid-area: theory;
 }
@@ -196,11 +200,37 @@
     line-height: 28px;
 }
 
-.task__input-label--bold {
-
-}
 
 .task__diagram {
     grid-area: task;
     border: 1px solid var(--lightgrey);
+}
+
+.task__diagram-actions{
+    grid-area: diagram-actions;
+    display: grid;
+    grid-template-columns: 440px 440px 440px;
+    align-items: center;
+}
+
+.task__diagram-action-label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.task__diagram-action-select{
+    width: 350px;
+}
+
+.task__button--assign-task{
+    color: var(--font-black);
+    background-color: var(--check-button-yellow);
+}
+
+.task__button--assign-task:hover {
+    background-color: var(--check-button-yellow-hover);
+}
+
+.task__button--assign-task:active {
+    background-color: var(--check-button-yellow-active);
 }

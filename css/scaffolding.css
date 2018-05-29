@@ -16,12 +16,16 @@
 
     --schedule-bg: #F6F7F9;
     --time-block-normal: #D5DFE9;
+    --time-block-normal--opacity: rgba(159, 172, 185, 0.50);
     --time-block-hover: #98A9B9;
     --time-block-active: #99A9B9;
+    --time-block-end: #6b7888;
+    --time-block-border: #84ca5e;
     --time-line: rgba(19, 100, 205, 0.1);
     --time-line-hover: rgba(19, 100, 205, 0.5);
 
     --check-button-yellow: #ffdb4d;
+
     --check-button-yellow-hover: #ffd633;
     --check-button-yellow-active: #fc0;
 
