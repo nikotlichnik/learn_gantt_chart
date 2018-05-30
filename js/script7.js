@@ -64,7 +64,7 @@ var developingPeriods = {
     },
     "5": {
         "name": "Дарья",
-        "skills": ["HTML", "CSS", "Photoshop", "Illustrator"],
+        "skills": ["HTML", "CSS", "Photoshop", "Illustrator", "Sketch"],
         "time": {}
     }
 };
@@ -312,15 +312,31 @@ var checkTask = function () {
     var isNormalDayOff = true;
     var isCorrectMatch = true;
     var isCorrectTicketPeriods = true;
+    var isThereNoIntersections = true;
 
     var numOfAssignedTasks = 0;
     var assignedTasks = [];
     for (var worker in developingPeriods) {
         var workerTickets = developingPeriods[worker]["time"];
         var workDays = 0;
+
+        //Считаем занятые дни у работника (сколько задач приходится на один день)
+        var busyHours = {};
+        for (i = openHour; i < closeHour; i++) {
+            busyHours[i] = 0;
+        }
+
         for (var ticket in workerTickets) {
+            var ticketBeginTime = workerTickets[ticket]["duration"][0];
+            var ticketEndTime = workerTickets[ticket]["duration"][1];
+
+            // Считаем занятость часов у человека
+            for (i = ticketBeginTime; i < ticketEndTime; i++) {
+                busyHours[i]++;
+            }
+
             // Считаем рабочие дни у конкретного работника
-            workDays += workerTickets[ticket]["duration"][1] - workerTickets[ticket]["duration"][0];
+            // workDays += workerTickets[ticket]["duration"][1] - workerTickets[ticket]["duration"][0];
             numOfAssignedTasks++;
             // Проверка соответствия навыков конкретного тикета и работника
             try {
@@ -343,6 +359,21 @@ var checkTask = function () {
                 isCorrectTicketPeriods = false;
             }
         }
+
+
+
+        for (i in busyHours) {
+            // Проверяем наложения тикетов друг на друга
+            if (busyHours[i] > 1) {
+                isThereNoIntersections = false;
+            }
+            // Считаем рабочие дни у конкретного работника
+            if(busyHours[i] > 0){
+                workDays++;
+            }
+        }
+        console.log(busyHours, workDays);
+
         // Проверка количества выходных
         if (daysInPeriod - workDays < minNumOfDayOff) {
             isNormalDayOff = false;
@@ -365,13 +396,13 @@ var checkTask = function () {
     try {
         assert.sameMembers(assignedTasks, assignedTasksAnswer);
     }
-    catch (err){
+    catch (err) {
         isCorrectOneTime = false;
     }
 
     /** Выводим и запоминаем результат **/
-    // var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectNumOfAssignedTasks && isCorrectOneTime;
-    var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectOneTime;
+        // var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectNumOfAssignedTasks && isCorrectOneTime;
+    var isCorrect = isNormalDayOff && isCorrectMatch && isCorrectTicketPeriods && isCorrectOneTime && isThereNoIntersections;
     if (isCorrect) {
         correctMessage.style.display = "block";
         localStorage.setItem(currentTask, "done_correct");
@@ -383,6 +414,7 @@ var checkTask = function () {
         if (!isCorrectTicketPeriods) conditions[2].style.display = "list-item";
         // if (!isCorrectNumOfAssignedTasks) conditions[3].style.display = "list-item";
         if (!isCorrectOneTime) conditions[4].style.display = "list-item";
+        if (!isThereNoIntersections) conditions[5].style.display = "list-item";
         localStorage.setItem(currentTask, "done_wrong");
     }
     setTaskStatus(currentTask);
